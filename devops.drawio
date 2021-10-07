@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-10-07T19:57:02.792Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Safari/605.1.15" etag="Xs9bRFXqlTmW7kk-9A8A" version="15.4.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-10-07T19:57:15.832Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Safari/605.1.15" etag="i8qWPI9RLJaaq4yuUmSL" version="15.4.3" type="github">
   <diagram id="PN8kuetyCjDLw-ILb-1d" name="Page-1">
     <mxGraphModel dx="2027" dy="1887" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -399,7 +399,7 @@
           <mxGeometry x="-30" y="180" width="390" height="60" as="geometry" />
         </mxCell>
         <mxCell id="RRJmfHS-Dt0XoVxBj87V-67" value="&lt;div style=&quot;text-align: center&quot;&gt;&lt;b style=&quot;text-align: left&quot;&gt;&lt;font size=&quot;4&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b style=&quot;text-align: left&quot;&gt;&lt;font size=&quot;4&quot;&gt;Teammitglieder&amp;nbsp;kümmern sich um Entwicklung und Deployment sowie&amp;nbsp;Konfiguration für Monitoring und Logging der Services bis Produktion.&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;rounded=0;shadow=1;glass=1;sketch=1;fontFamily=Tahoma;fontSize=23;fontColor=#000000;strokeColor=default;fillColor=#FFFFFF;gradientColor=#ffffff;align=center;direction=south;" vertex="1" parent="1">
-          <mxGeometry x="1174" width="480" height="150" as="geometry" />
+          <mxGeometry x="1110" y="-30" width="480" height="150" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
