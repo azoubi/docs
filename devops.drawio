@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-10-07T12:20:03.347Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36" etag="mhHpNyUdLXC-JvoqzChw" version="15.4.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-10-07T13:07:50.420Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36" etag="o9y-04vfhgLMy-Um0PCu" version="15.4.3" type="github">
   <diagram id="PN8kuetyCjDLw-ILb-1d" name="Page-1">
     <mxGraphModel dx="2254" dy="863" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -201,6 +201,9 @@
               <mxPoint x="870.1800000000001" y="1550" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="6koIWRQ8JG91AjPf6UxW-94" value="&lt;b&gt;Azure Cloud&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;fontFamily=Verdana;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1050" width="140" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
