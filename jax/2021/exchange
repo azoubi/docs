@@ -1,0 +1,7 @@
+private String extendBicToElevenDigits(String bic) {
+    if (StringUtil.isNotNullOrBlank(bic) && 8 == bic.length()) {
+      return bic + "XXX";
+    } else {
+      return bic;
+    }
+}
