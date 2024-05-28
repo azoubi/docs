@@ -1,34 +1,74 @@
-Prüfmerkmale (Zahlungsausgang)
-Angelegt von Ziegra, Dr. Andreas, zuletzt geändert am Apr 25, 2024
-Select, um die Daten aus der Host-Datenbank zu extrahieren:
-
-select MMART as art, pruef_wert as pruefwert,  bisbetr as bis_betrag, mmwhrg as merkmal_bis_betrag, hinweistext as hinweistext, case stp when '0' then 'false' else 'true' end as stp_wert, BED_ERF as creation_user, ZEITPUNKT_ERF as creation_time, user_update as USER_UPDATE, time_update as TIME_UPDATE,ZEITPUNKT_LAEND as modification_time,
-'' as activation_time,'' as dialog_lock_time, '' as dialog_lock_user,BED_LAEND as  modification_user from di0ad009.vizprmm1 where gatyp in ('A','Z')  
-
-Aufbau der Tabelle:
-
-
-
-
-
-id
-
-BIGINT	NO	Technische ID
-art
-
-Decimal(3)	NO	Art
-pruefwert	VARCHAR(35)	NO	
-bis_betrag	Decimal(23,5)	NO	
-merkmal_bis_betrag	Char(1)	NO	
-hinweistext	VARCHAR(70)	NO	
-stp_wert	boolean	NO	
-creation_user	VARCHAR (10)	NO	
-creation_time	TIMESTAMP	NO	
-user_update	VARCHAR (10)	NO	
-time_update	TIMESTAMP	NO	
-activation_time	TIMESTAMP	YES	
-dialog_lock_time	TIMESTAMP	YES	
-dialog_lock_user	VARCHAR (10)	YES	
-modification_time	TIMESTAMP	NO	
-modification_user	VARCHAR (10)	NO	
-
+Wenn
+    STP == false erfasst
+      oder
+    auf STP == false geändert wurde
+dann
+    weiter bei Prüfung 4
+ 
+//Prüfung 1
+Wenn
+    betragIntern >= ConfigService azv_stp_parameter.stp_betragsgrenze_ausgaenge
+dann
+    wenn
+        kategorie == MANUELL
+    dann
+        Fehlermeldung: " STP-Betragsgrenze überschritten" und weiter bei Prüfung 2
+    sonst
+        Hinweismeldung: " STP-Betragsgrenze überschritten" und weiter bei Prüfung 2 
+        stp = false
+ 
+//Prüfung 2
+Wenn
+    (bankbeguenstigter.bic is null
+      oder
+    bankgebuenstigter.clearingSystem.code != FW,BL)
+dann
+    wenn
+        kategorie == MANUELL
+    dann
+        Fehlermeldung: "Bank Begünstigter hat non-STP-Wert" und weiter bei Prüfung 3
+    sonst     
+        Hinweismeldung: "Bank Begünstigter hat non-STP-Wert" und weiter bei Prüfung 3
+        stp = false
+ 
+//Prüfung 3
+Wenn     
+    bearbeitungshinweis1 is not null
+dann
+    Wenn
+        bearbeitungshinweis1 == ConfigService azv_stp_parameter.bhw_ausnahmewert_ausgaenge
+    dann
+        raus
+    sonst Wenn
+        bearbeitungshinweis1 == "TELEX-ZAHLUNG ODER SWIFT-EILIG"
+          und
+        ConfigService azv_stp_parameter.bhw_kein_stop_ausgaenge == true
+    dann
+        wenn
+            bearbeitungshinweis2 is null
+        dann
+            weiter bei Prüfung 4
+    sonst
+        wenn
+            kategorie == MANUELL
+        dann
+            Fehlermeldung: "Feld Bearbeitungshinweis1" + Inhalt von bearbeitungshinweis1 + " enthält NON-STP Wert"  und weiter bei Prüfung 4
+        sonst         
+            Hinweismeldung: "Feld Bearbeitungshinweis1" + Inhalt von bearbeitungshinweis1 + " enthält NON-STP Wert" und weiter bei Prüfung 4            
+            stp = false
+ 
+Wenn     
+    bearbeitungshinweis2 is not null
+dann
+    Wenn
+        bearbeitungshinweis2 == ConfigService azv_stp_parameter.bhw_ausnahmewert_ausgaenge
+    dann
+        raus
+    sonst
+        wenn
+            kategorie == MANUELL
+        dann        
+            Fehlermeldung: "Feld Bearbeitungshinweis2" + Inhalt von bearbeitungshinweis2 + " enthält NON-STP Wert" und weiter bei Prüfung 4  
+        sonst 
+            Hinweismeldung: "Feld Bearbeitungshinweis2" + Inhalt von bearbeitungshinweis2 + " enthält NON-STP Wert" und weiter bei Prüfung 4 
+            stp = false
