@@ -1,0 +1,42 @@
+Beschreibung:
+
+Wir benötigen eine neue Java Delegate Klasse im Camunda Workflow, die folgende Funktionen erfüllt:
+
+MQ Listener Integration:
+
+Die Klasse soll als MQ Listener fungieren und Dateien empfangen können.
+Dateien bis zu einer Größe von 100 MB können über das MQ System empfangen werden.
+Herkunftsunterscheidung:
+
+Der Delegate soll in der Lage sein, die Herkunft der empfangenen Dateien zu unterscheiden und entsprechend zu verarbeiten.
+Erweiterbarkeit der Formatunterstützung:
+
+Die Klasse soll so gestaltet werden, dass sie in Zukunft weitere Dateiformate einfach unterstützen und verarbeiten kann.
+Akzeptanzkriterien:
+
+MQ Listener Funktionalität:
+
+Die Java Klasse ist erfolgreich als MQ Listener im Camunda Workflow integriert.
+Dateien bis zu einer Größe von 100 MB werden erfolgreich empfangen und verarbeitet.
+Herkunftsunterscheidung:
+
+Die Klasse kann die Herkunft der empfangenen Dateien unterscheiden (z.B. anhand von Metadaten oder Nachrichteninhalten) und entsprechend unterschiedlich verarbeiten.
+Erweiterbarkeit der Formatunterstützung:
+
+Die Architektur der Klasse ermöglicht zukünftige Erweiterungen zur Unterstützung weiterer Dateiformate mit minimalem Aufwand.
+Ein Beispiel-Dokumentationsabschnitt oder eine Beispiel-Implementierung für die Unterstützung eines zusätzlichen Dateiformats ist vorhanden.
+Technische Details:
+
+Programmiersprache: Java
+Framework: Camunda BPM
+MQ System: [Name des MQ Systems, z.B. IBM MQ, RabbitMQ]
+Maximale Dateigröße: 100 MB
+Priorität: Hoch
+
+Zugewiesen an: [Name des Entwicklers/Teams]
+
+Fälligkeitsdatum: [Datum festlegen]
+
+Zusätzliche Informationen:
+
+Bitte sicherstellen, dass alle relevanten Tests (Unit Tests, Integration Tests) für die neue Klasse geschrieben und erfolgreich durchgeführt werden.
